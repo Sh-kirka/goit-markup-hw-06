@@ -722,7 +722,11 @@ a.link.current::after {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
 }
-
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 .modal-form {
   position: relative;
   height: 581px;
@@ -732,7 +736,6 @@ a.link.current::after {
   border-radius: 4px;
   padding: 40px;
 }
-
 .modal-form-title {
   font-family: var(--primary-font);
   font-style: normal;
@@ -745,28 +748,22 @@ a.link.current::after {
   margin-bottom: 30px;
   color: var(--secondary-text-color);
 }
-
 .modal-form-input-wrapper {
   position: relative;
   margin-bottom: 28px;
 }
-
 .modal-form-input {
   height: 40px;
   padding-left: 42px;
 }
-
 .modal-form-input::placeholder {
   color: transparent;
   transition: color 250ms linear 250ms;
 }
-
 .modal-form-input:focus::placeholder {
   color: #000000;
 }
-
-.modal-form-input,
-.modal-form-message {
+.modal-form-input {
   display: block;
   width: 100%;
   font-family: var(--primary-font);
@@ -775,9 +772,36 @@ a.link.current::after {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.01em;
-  border: 1px solid rgba(75, 75, 75, 20%);
+  border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   background-color: transparent;
+}
+.modal-form-input.text:focus + .modal-form-message-label,
+.modal-form-input.text:hover + .modal-form-message-label,
+.modal-form-input.text:not(:placeholder-shown) + .modal-form-message-label {
+  transform: translateY(-32px) translateX(-1px);
+  color: var(--accent-color);
+}
+.modal-form-input:focus,
+.modal-form-input:not(:placeholder-shown) {
+  outline: none;
+  border-color: var(--accent-color);
+}
+.modal-form-message:focus + .modal-form-message-label,
+.modal-form-message:not(:placeholder-shown) + .modal-form-message-label {
+  outline: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+.modal-form-message:focus + .modal-form-message-label {
+  color: var(--accent-color);
+  outline: none;
+}
+.modal-form-message:focus {
+  border-color: var(--accent-color);
+  outline: none;
 }
 .modal-form-message {
   height: 120px;
@@ -792,22 +816,11 @@ a.link.current::after {
   border-radius: 4px;
   cursor: pointer;
 }
-.modal-form-message:focus::placeholder {
-  color: var(--accent-color);
-}
-.modal-form-label.form-message {
-  top: 20%;
+.modal-form-message-label {
+  position: absolute;
+  top: 12px;
   left: 16px;
-}
-.modal-form-input:focus,
-.modal-form-message:focus,
-.modal-form-input:not(:placeholder-shown),
-.modal-form-message:not(:placeholder-shown) {
-  outline: none;
-  border-color: var(--accent-color);
-}
-.modal-form-input:not(:placeholder-shown) .form-message {
-  top: -18px;
+  transition: transform 250ms linear, color 250ms linear;
 }
 .modal-form-svg {
   position: absolute;
@@ -836,15 +849,10 @@ a.link.current::after {
 .modal-form-input:focus + .modal-form-label,
 .modal-form-input:hover + .modal-form-label,
 .modal-form-input:not(:placeholder-shown) + .modal-form-label {
-  transform: translateY(-39px) translateX(-28px);
+  transform: translateY(-38px) translateX(-28px);
   color: var(--accent-color);
 }
-.modal-form-input.text:focus + .modal-form-label.form-message,
-.modal-form-input.text:hover + .modal-form-label.form-message,
-.modal-form-input.text:not(:placeholder-shown)
-  + .modal-form-label.form-message {
-  transform: translateY(-45px) translateX(-0px);
-}
+
 .modal-form-input:focus ~ .modal-form-svg,
 .modal-form-input:hover ~ .modal-form-svg,
 .modal-form-input:not(:placeholder-shown) ~ .modal-form-svg {
@@ -900,6 +908,10 @@ a.link.current::after {
   border: 2px solid var(--accent-color);
   border-radius: 2px;
 }
+.modal-close-button:focus .modal-close-button-svg,
+.modal-close-button:hover .modal-close-button-svg {
+  fill: var(--accent-color);
+}
 .modal-form-button {
   font-weight: bold;
   font-size: 16px;
@@ -921,11 +933,6 @@ a.link.current::after {
 .modal-form-button:hover,
 .modal-form-button:focus {
   background-color: var(--modal-theme-color);
-}
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
 }
 .modal-close-button-svg {
   position: absolute;
@@ -959,8 +966,4 @@ a.link.current::after {
   transition-duration: 250ms;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-close-button:focus .modal-close-button-svg,
-.modal-close-button:hover .modal-close-button-svg {
-  fill: var(--accent-color);
 }
