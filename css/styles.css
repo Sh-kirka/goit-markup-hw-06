@@ -779,7 +779,7 @@ a.link.current::after {
 .modal-form-input.text:focus + .modal-form-message-label,
 .modal-form-input.text:hover + .modal-form-message-label,
 .modal-form-input.text:not(:placeholder-shown) + .modal-form-message-label {
-  transform: translateY(-32px) translateX(-1px);
+  transform: translateY(-32px) translateX(-0px);
   color: var(--accent-color);
 }
 .modal-form-input:focus,
@@ -819,7 +819,7 @@ a.link.current::after {
 .modal-form-message-label {
   position: absolute;
   top: 12px;
-  left: 16px;
+  left: 14px;
   transition: transform 250ms linear, color 250ms linear;
 }
 .modal-form-svg {
