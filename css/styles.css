@@ -716,7 +716,7 @@ a.link.current::after {
 }
 
 /* Модальное окно*/
-.backdrop {
+.backdrop-modal {
   position: fixed;
   left: 0;
   top: 0;

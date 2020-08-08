@@ -36,7 +36,7 @@
             <a class="header-mail link" href="mailto:info@devstudio.com">
               <svg class="header-mail-svg" width="16px" height="12px">
                 <use
-                  href="./images/icons/sprite_header.svg#icon-envelope"
+                  href="./images/icons/sprite.svg#icon-envelope"
                 ></use>
               </svg>
               <adress>info@devstudio.com</adress></a
@@ -46,7 +46,7 @@
             <a class="header-tel link" href="tel:+380961111111">
               <svg class="header-tel-svg" width="10px" height="16px">
                 <use
-                  href="./images/icons/sprite_header.svg#icon-smartphone"
+                  href="./images/icons/sprite.svg#icon-smartphone"
                 ></use>
               </svg>
               +38 096 111 11 11</a
@@ -63,7 +63,7 @@
             Эффективные решения <br />
             для вашего бизнеса
           </h1>
-          <button class="modal-button">Заказать услугу</button>
+          <button data-modal-open class="modal-button">Заказать услугу</button>
         </div>
       </section>
       <!-- О НАС -->
@@ -573,7 +573,7 @@
     </footer>
 
 <!-- Модальное окно -->
-<div data-modal class="backdrop is-hidden">
+<div data-modal class="backdrop-modal is-hidden">
   <form action="#" class="modal-form">
     <h2 class="modal-form-title">Оставьте свои данные, мы вам перезвоним</h2>
     <button data-modal-close type="button" class="modal-close-btn">
@@ -620,7 +620,6 @@
 
   </form>
 </div>
-
 <script src="./js/modal.js"></script>
   </body>
 </html>
